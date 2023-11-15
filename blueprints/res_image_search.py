@@ -37,8 +37,6 @@ class ResImageSearch(Resource):
             data.get('file'))
         torch.cuda.empty_cache()
         for result in results:
-            if result[1] < 0.3:
-                continue
             id = result[0]
             similarity = format(result[1], '.4f')
             url0 = current_app.config["IMAGE_BASE_URL"] + '/' + result[2][0]
